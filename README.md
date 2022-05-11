@@ -12,13 +12,13 @@ Indicates whether the image is or not valid. Valid images are the ones with "goo
 Example request:
 ```json
 {
-	"url": "http://aserver.com/extras/good/moreextras/image.jpg",
+	"url": "http://aserver.com/extras/good/moreextras/image.jpg"
 }
 ```
 Example response:
 ```json
 {
-	"valid": true,
+	"valid": true
 }
 ```
 

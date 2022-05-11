@@ -1,73 +1,32 @@
 ## Endpoints
 
-#### **POST /login**
-User sign in. Expects JSON with username and password:
+#### **GET /good/:id.jpg**
+Returns an image. Those images are supossed to be invalid.
+Currently it doesn't return an actual image, only text.
+
+#### **GET /bad/:id.jpg**
+Returns an image. Those images are supossed to be invalid.
+Currently it doesn't return an actual image, only text
+
+#### **POST /validate**
+Indicates whether the image is or not valid. Valid images are the ones with "good" URLs (they match the regex `/^https?:\/\/.*\/good\/.*\.jpg$/`)
+
 Example request:
 ```json
 {
-	"username": "player2",
-	"password": "pass2"
+	"url": "http://aserver.com/extras/good/moreextras/image.jpg",
 }
 ```
 Example response:
 ```json
 {
-	"access_token": "eyJhbGciO...aCswBA6FCDGwMATDrhP8htN__6QI",
-	"token_type": "Bearer",
-	"expires_in": 300,
-	"player_id": 5298
+	"valid": true,
 }
 ```
 
-#### **GET /player/:id**
-Returns player's data
+If you want to test this in [heroku](https://heroku.com/), you will need to create an account there and install heroku client on your system.
 
-Example response:
-```json
-{
-	"id": 5298,
-	"username": "player2",
-	"name": "Player 2"
-}
-```
-#### **GET /player/:id/games**
-Returns player games
-
-Example response:
-```json
-[
-	51,
-	260
-]
-```
-
-#### **GET /game/:id**
-Returns game info
-
-Example response:
-```json
-{
-	"player": 311,
-	"id": 51,
-	"date": "2021-04-23T18:25:43.511Z",
-	"result": [
-		[1,0,2],
-		[1,2,1],
-		[2,2,1]
-	],
-	"first_movement": "65c...4149360545068"
-}
-```
-#### **GET /game/:id/movements/:movid**
-Returns movement data. `next` will be null if there are no more movements
-
-Example response:
-```json
-{
-	"movement": [
-		0,
-		0
-	],
-	"next": "70b33d6be...6a"
-}
-```
+- To create an app: `heroku create`
+- If you already have an app: `heroku git:remote -a your-app-name`
+- To deploy your changes: `git push heroku master`
+- To deploy a branch: `git push heroku <branch_to_deploy>:master`

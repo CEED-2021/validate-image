@@ -2,11 +2,9 @@
 
 #### **GET /good/:id.jpg**
 Returns an image. Those images are supossed to be invalid.
-Currently it doesn't return an actual image, only text.
 
 #### **GET /bad/:id.jpg**
 Returns an image. Those images are supossed to be invalid.
-Currently it doesn't return an actual image, only text
 
 #### **POST /validate**
 Indicates whether the image is or not valid. Valid images are the ones with "good" URLs (they match the regex `/^https?:\/\/.*\/good\/.*\.jpg$/`)
